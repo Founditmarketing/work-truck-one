@@ -5,7 +5,7 @@ export default function Footer() {
     <footer className="bg-industrial-black border-t border-white/10 pt-16 pb-8">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
-          
+
           {/* Brand Column */}
           <div className="space-y-6">
             <div className="flex-shrink-0 flex items-center">
@@ -31,10 +31,10 @@ export default function Footer() {
             <h4 className="text-white font-display font-black text-xl mb-6 uppercase tracking-widest">SERVICES</h4>
             <ul className="space-y-4">
               <li><a href="#" className="text-gray-400 hover:text-safety-amber transition-colors font-medium uppercase tracking-wide text-sm">Service Bodies</a></li>
+              <li><a href="#" className="text-gray-400 hover:text-safety-amber transition-colors font-medium uppercase tracking-wide text-sm">Platforms & Flatbeds</a></li>
               <li><a href="#" className="text-gray-400 hover:text-safety-amber transition-colors font-medium uppercase tracking-wide text-sm">Liftgates</a></li>
               <li><a href="#" className="text-gray-400 hover:text-safety-amber transition-colors font-medium uppercase tracking-wide text-sm">Cranes</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-safety-amber transition-colors font-medium uppercase tracking-wide text-sm">Dump Bodies</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-safety-amber transition-colors font-medium uppercase tracking-wide text-sm">Hooklifts</a></li>
+              <li><a href="#" className="text-gray-400 hover:text-safety-amber transition-colors font-medium uppercase tracking-wide text-sm">Accessories</a></li>
             </ul>
           </div>
 
@@ -45,8 +45,8 @@ export default function Footer() {
               <li className="flex items-start space-x-3">
                 <MapPin className="w-5 h-5 text-safety-amber flex-shrink-0 mt-0.5" />
                 <span className="text-gray-400 font-medium leading-relaxed uppercase tracking-wide text-sm">
-                  123 Industrial Blvd<br />
-                  Alexandria, LA 71301
+                  2203 MacArthur Dr<br />
+                  Alexandria, LA 71303
                 </span>
               </li>
               <li className="flex items-center space-x-3">

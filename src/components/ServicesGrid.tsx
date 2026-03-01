@@ -5,37 +5,51 @@ const services = [
   {
     id: 'service-bodies',
     title: 'Service Bodies',
-    description: 'Heavy-duty steel and aluminum bodies designed for maximum storage and durability on the job site.',
-    image: 'https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?q=80&w=2940&auto=format&fit=crop',
+    description: 'Versatile service bodies offering organized storage, tool access, and durable construction for demanding job-site tasks.',
+    image: 'https://images.unsplash.com/photo-1621305417070-07ff330e70ed?q=80&w=2940&auto=format&fit=crop',
     span: 'col-span-1 md:col-span-2 row-span-2',
+  },
+  {
+    id: 'flatbeds',
+    title: 'Platforms & Flatbeds',
+    description: 'Strong, open platforms and flatbeds built for hauling equipment, oversized loads, and rugged work environments.',
+    image: '/images/flatbed.png',
+    span: 'col-span-1 md:col-span-1 row-span-2',
   },
   {
     id: 'liftgates',
     title: 'Liftgates',
-    description: 'Commercial-grade hydraulic liftgates for safe, efficient loading and unloading.',
-    image: 'https://images.unsplash.com/photo-1586864387967-d02ef85d93e8?q=80&w=2940&auto=format&fit=crop',
+    description: 'Heavy-duty liftgates provide safe, efficient loading support for commercial trucks and daily work operations.',
+    image: 'https://images.unsplash.com/photo-1586864387799-d4212903260b?q=80&w=2940&auto=format&fit=crop',
     span: 'col-span-1 md:col-span-1 row-span-1',
   },
   {
     id: 'cranes',
     title: 'Cranes',
-    description: 'Telescopic and articulated cranes engineered for heavy lifting in tight spaces.',
+    description: 'High-performance truck-mounted cranes provide precise lifting power for construction, utility, and industrial applications.',
     image: 'https://images.unsplash.com/photo-1504307651254-35680f356f12?q=80&w=2940&auto=format&fit=crop',
     span: 'col-span-1 md:col-span-1 row-span-1',
   },
   {
     id: 'dump-bodies',
     title: 'Dump Bodies',
-    description: 'Rugged dump bodies built to handle the toughest hauling and dumping requirements.',
+    description: 'Durable dump bodies delivering smooth dumping performance for construction, landscaping, and heavy hauling jobs.',
     image: 'https://images.unsplash.com/photo-1519003722824-194d4455a60c?q=80&w=2940&auto=format&fit=crop',
     span: 'col-span-1 md:col-span-1 row-span-1',
   },
   {
     id: 'hooklifts',
-    title: 'Hooklifts',
-    description: 'Versatile hooklift systems allowing one truck to do the work of an entire fleet.',
-    image: 'https://images.unsplash.com/photo-1621929747188-0b4dc28498d2?q=80&w=2832&auto=format&fit=crop',
+    title: 'Hooklifts & Hoists',
+    description: 'Versatile hooklift systems enabling quick body changes and efficient handling of varied work-truck tasks.',
+    image: 'https://images.unsplash.com/photo-1580674684081-776733156bf6?q=80&w=2832&auto=format&fit=crop',
     span: 'col-span-1 md:col-span-2 row-span-1',
+  },
+  {
+    id: 'accessories',
+    title: 'Accessories & Strobes',
+    description: 'Custom lighting, hardware, strobes, and emergency lighting to ensure regulatory compliance and job site safety.',
+    image: 'https://images.unsplash.com/photo-1533470192478-9897d90d5461?q=80&w=2832&auto=format&fit=crop',
+    span: 'col-span-1 md:col-span-1 row-span-1',
   },
 ];
 
@@ -80,7 +94,7 @@ export default function ServicesGrid() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-industrial-black via-industrial-black/80 to-transparent opacity-90 group-hover:opacity-70 transition-opacity duration-300"></div>
               </div>
-              
+
               <div className="absolute inset-0 z-10 p-8 flex flex-col justify-end">
                 <div className="transform translate-y-6 group-hover:translate-y-0 transition-transform duration-300">
                   <h4 className="text-3xl md:text-4xl font-display font-black text-white mb-3 tracking-wider uppercase italic">
@@ -90,13 +104,13 @@ export default function ServicesGrid() {
                     {service.description}
                   </p>
                 </div>
-                
+
                 {/* Decorative corner accent */}
                 <div className="absolute top-0 right-0 w-16 h-16 bg-safety-amber flex items-start justify-end p-3 translate-x-full -translate-y-full group-hover:translate-x-0 group-hover:translate-y-0 transition-transform duration-300">
                   <ArrowUpRight className="w-8 h-8 text-industrial-black" />
                 </div>
               </div>
-              
+
               {/* Hazard stripe border effect on hover */}
               <div className="absolute bottom-0 left-0 right-0 h-2 hazard-bg scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left z-20"></div>
             </motion.div>

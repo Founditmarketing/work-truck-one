@@ -7,10 +7,9 @@ export default function Hero() {
       {/* Background Image with Overlay */}
       <div className="absolute inset-0 z-0">
         <img
-          src="https://images.unsplash.com/photo-1580674684081-776733156bf6?q=80&w=2940&auto=format&fit=crop"
-          alt="Heavy duty truck in workshop"
+          src="/images/hero.png"
+          alt="Heavy duty service truck on jobsite"
           className="w-full h-full object-cover grayscale opacity-40"
-          referrerPolicy="no-referrer"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-industrial-black via-transparent to-industrial-black mix-blend-multiply"></div>
         {/* Noise overlay */}
@@ -39,7 +38,7 @@ export default function Hero() {
             className="transform skew-x-6 pl-4 border-l-4 border-safety-amber mb-12"
           >
             <p className="text-xl sm:text-2xl md:text-3xl text-gray-300 font-bold max-w-2xl leading-tight uppercase tracking-wide">
-              Louisiana's trusted authority for commercial work-truck upfitting & heavy-duty enhancements.
+              Louisiana's Trusted Provider of Commercial Work-Truck Upfitting, Service Bodies, Cranes & Heavy-Duty Accessories.
             </p>
           </motion.div>
 
@@ -66,23 +65,29 @@ export default function Hero() {
           </motion.div>
         </div>
       </div>
-      
+
       {/* Marquee Banner */}
       <div className="absolute bottom-0 left-0 right-0 bg-safety-amber text-industrial-black font-display font-black text-2xl py-4 overflow-hidden z-20 border-y-4 border-black">
         <div className="animate-marquee flex gap-12 items-center tracking-widest">
           <span>// SERVICE BODIES</span>
           <span>// LIFTGATES</span>
           <span>// CRANES</span>
+          <span>// FLATBEDS</span>
           <span>// DUMP BODIES</span>
           <span>// HOOKLIFTS</span>
           <span>// CUSTOM FABRICATION</span>
+          <span>// STROBES & LIGHTING</span>
+          <span>// TOWING ACCESSORIES</span>
           {/* Duplicate for seamless loop */}
           <span>// SERVICE BODIES</span>
           <span>// LIFTGATES</span>
           <span>// CRANES</span>
+          <span>// FLATBEDS</span>
           <span>// DUMP BODIES</span>
           <span>// HOOKLIFTS</span>
           <span>// CUSTOM FABRICATION</span>
+          <span>// STROBES & LIGHTING</span>
+          <span>// TOWING ACCESSORIES</span>
         </div>
       </div>
     </section>
