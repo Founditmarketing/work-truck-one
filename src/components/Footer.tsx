@@ -1,4 +1,5 @@
 import { Facebook, Instagram, MapPin, Phone, Mail } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 export default function Footer() {
   return (
@@ -9,9 +10,9 @@ export default function Footer() {
           {/* Brand Column */}
           <div className="space-y-6">
             <div className="flex-shrink-0 flex items-center">
-              <span className="font-display text-2xl font-black tracking-tight text-white">
+              <Link to="/" className="font-display text-2xl font-black tracking-tight text-white select-none">
                 WORK TRUCK <span className="text-safety-amber">ONE</span>
-              </span>
+              </Link>
             </div>
             <p className="text-gray-400 font-medium leading-relaxed">
               Central Louisiana's premier commercial truck upfitting and vehicle enhancement facility. Built tough. Built for the job.
@@ -30,11 +31,11 @@ export default function Footer() {
           <div>
             <h4 className="text-white font-display font-black text-xl mb-6 uppercase tracking-widest">SERVICES</h4>
             <ul className="space-y-4">
-              <li><a href="#" className="text-gray-400 hover:text-safety-amber transition-colors font-medium uppercase tracking-wide text-sm">Service Bodies</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-safety-amber transition-colors font-medium uppercase tracking-wide text-sm">Platforms & Flatbeds</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-safety-amber transition-colors font-medium uppercase tracking-wide text-sm">Liftgates</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-safety-amber transition-colors font-medium uppercase tracking-wide text-sm">Cranes</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-safety-amber transition-colors font-medium uppercase tracking-wide text-sm">Accessories</a></li>
+              <li><Link to="/services/service-bodies" className="text-gray-400 hover:text-safety-amber transition-colors font-medium uppercase tracking-wide text-sm">Service Bodies</Link></li>
+              <li><Link to="/services/flatbeds" className="text-gray-400 hover:text-safety-amber transition-colors font-medium uppercase tracking-wide text-sm">Platforms & Flatbeds</Link></li>
+              <li><Link to="/services/liftgates" className="text-gray-400 hover:text-safety-amber transition-colors font-medium uppercase tracking-wide text-sm">Liftgates</Link></li>
+              <li><Link to="/services/cranes" className="text-gray-400 hover:text-safety-amber transition-colors font-medium uppercase tracking-wide text-sm">Cranes</Link></li>
+              <li><Link to="/services/accessories" className="text-gray-400 hover:text-safety-amber transition-colors font-medium uppercase tracking-wide text-sm">Accessories</Link></li>
             </ul>
           </div>
 

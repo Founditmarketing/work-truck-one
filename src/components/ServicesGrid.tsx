@@ -1,57 +1,7 @@
 import { motion } from 'motion/react';
 import { ArrowUpRight } from 'lucide-react';
-
-const services = [
-  {
-    id: 'service-bodies',
-    title: 'Service Bodies',
-    description: 'Versatile service bodies offering organized storage, tool access, and durable construction for demanding job-site tasks.',
-    image: 'https://images.unsplash.com/photo-1621305417070-07ff330e70ed?q=80&w=2940&auto=format&fit=crop',
-    span: 'col-span-1 md:col-span-2 row-span-2',
-  },
-  {
-    id: 'flatbeds',
-    title: 'Platforms & Flatbeds',
-    description: 'Strong, open platforms and flatbeds built for hauling equipment, oversized loads, and rugged work environments.',
-    image: '/images/flatbed.png',
-    span: 'col-span-1 md:col-span-1 row-span-2',
-  },
-  {
-    id: 'liftgates',
-    title: 'Liftgates',
-    description: 'Heavy-duty liftgates provide safe, efficient loading support for commercial trucks and daily work operations.',
-    image: 'https://images.unsplash.com/photo-1586864387799-d4212903260b?q=80&w=2940&auto=format&fit=crop',
-    span: 'col-span-1 md:col-span-1 row-span-1',
-  },
-  {
-    id: 'cranes',
-    title: 'Cranes',
-    description: 'High-performance truck-mounted cranes provide precise lifting power for construction, utility, and industrial applications.',
-    image: 'https://images.unsplash.com/photo-1504307651254-35680f356f12?q=80&w=2940&auto=format&fit=crop',
-    span: 'col-span-1 md:col-span-1 row-span-1',
-  },
-  {
-    id: 'dump-bodies',
-    title: 'Dump Bodies',
-    description: 'Durable dump bodies delivering smooth dumping performance for construction, landscaping, and heavy hauling jobs.',
-    image: 'https://images.unsplash.com/photo-1519003722824-194d4455a60c?q=80&w=2940&auto=format&fit=crop',
-    span: 'col-span-1 md:col-span-1 row-span-1',
-  },
-  {
-    id: 'hooklifts',
-    title: 'Hooklifts & Hoists',
-    description: 'Versatile hooklift systems enabling quick body changes and efficient handling of varied work-truck tasks.',
-    image: 'https://images.unsplash.com/photo-1580674684081-776733156bf6?q=80&w=2832&auto=format&fit=crop',
-    span: 'col-span-1 md:col-span-2 row-span-1',
-  },
-  {
-    id: 'accessories',
-    title: 'Accessories & Strobes',
-    description: 'Custom lighting, hardware, strobes, and emergency lighting to ensure regulatory compliance and job site safety.',
-    image: 'https://images.unsplash.com/photo-1533470192478-9897d90d5461?q=80&w=2832&auto=format&fit=crop',
-    span: 'col-span-1 md:col-span-1 row-span-1',
-  },
-];
+import { Link } from 'react-router-dom';
+import { services } from '../data/services';
 
 export default function ServicesGrid() {
   return (
@@ -85,6 +35,7 @@ export default function ServicesGrid() {
               transition={{ duration: 0.5, delay: index * 0.1 }}
               className={`group relative overflow-hidden bg-industrial-black border-2 border-white/10 hover:border-safety-amber transition-colors duration-300 clip-br ${service.span}`}
             >
+              <Link to={`/services/${service.id}`} className="absolute inset-0 z-30" aria-label={`View ${service.title} details`}></Link>
               <div className="absolute inset-0 z-0">
                 <img
                   src={service.image}

@@ -1,5 +1,6 @@
 import { Phone, Menu, X } from 'lucide-react';
 import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -15,17 +16,16 @@ export default function Navbar() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-industrial-black/95 backdrop-blur-md border-b border-white/10 py-3' : 'bg-transparent py-5'
-      }`}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-industrial-black/95 backdrop-blur-md border-b border-white/10 py-3' : 'bg-transparent py-5'
+        }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center">
           {/* Logo */}
           <div className="flex-shrink-0 flex items-center">
-            <span className="font-display text-2xl font-black tracking-tight text-white">
+            <Link to="/" className="font-display text-2xl font-black tracking-tight text-white select-none">
               WORK TRUCK <span className="text-safety-amber">ONE</span>
-            </span>
+            </Link>
           </div>
 
           {/* Desktop Nav */}

@@ -1,28 +1,17 @@
-/**
- * @license
- * SPDX-License-Identifier: Apache-2.0
- */
-
-import Navbar from './components/Navbar';
-import Hero from './components/Hero';
-import TrustSignals from './components/TrustSignals';
-import ServicesGrid from './components/ServicesGrid';
-import CrossSellBanner from './components/CrossSellBanner';
-import LeadForm from './components/LeadForm';
-import Footer from './components/Footer';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Layout from './components/Layout';
+import Home from './pages/Home';
+import ServicePage from './pages/ServicePage';
 
 export default function App() {
   return (
-    <div className="min-h-screen bg-industrial-black text-industrial-light selection:bg-safety-amber selection:text-industrial-black">
-      <Navbar />
-      <main>
-        <Hero />
-        <TrustSignals />
-        <ServicesGrid />
-        <CrossSellBanner />
-        <LeadForm />
-      </main>
-      <Footer />
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Home />} />
+          <Route path="services/:id" element={<ServicePage />} />
+        </Route>
+      </Routes>
+    </Router>
   );
 }
