@@ -1,86 +1,37 @@
 import { Phone, Menu, X, ChevronDown, ArrowRight } from 'lucide-react';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'motion/react';
 import { services } from '../data/services';
 import { industries } from '../data/industries';
 
-export default function Navbar() {
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
-  const [activeImagePreview, setActiveImagePreview] = useState<string | null>(null);
-  const [expandedMobile, setExpandedMobile] = useState<string | null>(null);
-  const location = useLocation();
+// Extracted MegaMenuPanel outside of the main component to prevent violent remounts on every state change
+const MegaMenuPanel = ({ items, basePath, title, description }: any) => {
+  const [activeImagePreview, setActiveImagePreview] = useState<string | null>(items[0]?.image || null);
 
-  // Close menus on route change
-  useEffect(() => {
-    setIsMobileMenuOpen(false);
-    setExpandedMobile(null);
-    setActiveDropdown(null);
-    setActiveImagePreview(null);
-  }, [location.pathname]);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  let timeoutId: ReturnType<typeof setTimeout>;
-
-  const handleMouseEnter = (menu: string) => {
-    clearTimeout(timeoutId);
-    setActiveDropdown(menu);
-    // Set default image preview to the first item's image when opening
-    if (menu === 'services' && services.length > 0) {
-      setActiveImagePreview(services[0].image);
-    } else if (menu === 'industries' && industries.length > 0) {
-      setActiveImagePreview(industries[0].image);
-    }
-  };
-
-  const handleMouseLeave = () => {
-    timeoutId = setTimeout(() => {
-      setActiveDropdown(null);
-      setActiveImagePreview(null);
-    }, 150);
-  };
-
-  const toggleMobileExpanded = (menu: string) => {
-    if (expandedMobile === menu) {
-      setExpandedMobile(null);
-    } else {
-      setExpandedMobile(menu);
-    }
-  };
-
-  // Mega Menu Panel Component for DRY code
-  const MegaMenuPanel = ({ items, basePath, title, description }: any) => (
+  return (
     <motion.div
       initial={{ opacity: 0, y: -10 }}
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -10 }}
-      transition={{ duration: 0.2 }}
-      className="absolute top-full left-0 w-full min-w-[800px] bg-industrial-black border-t-2 border-safety-amber shadow-2xl mt-4 hidden md:block"
+      transition={{ duration: 0.15, ease: 'easeOut' }}
+      className="absolute top-full left-0 w-full min-w-[800px] bg-industrial-black border-t-2 border-safety-amber shadow-2xl mt-4 hidden md:block origin-top"
     >
-      <div className="absolute -top-4 left-0 w-full h-4"></div> {/* Hover bridge */}
+      <div className="absolute -top-4 left-0 w-full h-8 cursor-default"></div> {/* Hover bridge */}
       <div className="flex h-[400px]">
         {/* Left Side: Navigation Links */}
         <div className="w-1/2 p-10 bg-industrial-gray/50 flex flex-col justify-between">
           <div>
             <h3 className="text-sm font-black text-safety-amber uppercase tracking-widest mb-6">{title}</h3>
-            <div className="grid grid-cols-1 gap-2">
-              {items.map((item: any, index: number) => (
+            <div className="grid grid-cols-1 gap-2 relative z-10">
+              {items.map((item: any) => (
                 <Link
                   key={item.id}
                   to={`/${basePath}/${item.id}`}
                   onMouseEnter={() => setActiveImagePreview(item.image)}
                   className="group flex items-center justify-between px-4 py-3 bg-industrial-black border border-white/5 hover:border-safety-amber transition-colors"
                 >
-                  <span className="text-lg font-bold text-white tracking-wide uppercase group-hover:text-safety-amber transition-colors">
+                  <span className="text-lg font-bold text-white tracking-wide uppercase group-hover:text-safety-amber transition-colors flex-1">
                     {item.title}
                   </span>
                   <ArrowRight className="w-5 h-5 text-gray-600 group-hover:text-safety-amber transform group-hover:translate-x-1 transition-all" />
@@ -95,7 +46,8 @@ export default function Navbar() {
 
         {/* Right Side: Dynamic Image Preview */}
         <div className="w-1/2 relative bg-industrial-black overflow-hidden">
-          <AnimatePresence mode="wait">
+          {/* Removed mode="wait" so images crossfade instantly instead of flashing blank */}
+          <AnimatePresence>
             {activeImagePreview && (
               <motion.img
                 key={activeImagePreview}
@@ -103,7 +55,7 @@ export default function Navbar() {
                 initial={{ opacity: 0, scale: 1.05 }}
                 animate={{ opacity: 0.8, scale: 1 }}
                 exit={{ opacity: 0 }}
-                transition={{ duration: 0.4 }}
+                transition={{ duration: 0.3, ease: 'easeInOut' }}
                 className="absolute inset-0 w-full h-full object-cover grayscale mix-blend-luminosity"
               />
             )}
@@ -112,7 +64,7 @@ export default function Navbar() {
           <div className="absolute inset-0 bg-gradient-to-r from-industrial-black/80 to-transparent pointer-events-none"></div>
 
           <div className="absolute bottom-10 left-10">
-            <span className="bg-safety-amber text-industrial-black font-black uppercase tracking-widest text-xs px-3 py-1">
+            <span className="bg-safety-amber text-industrial-black font-black uppercase tracking-widest text-xs px-3 py-1 shadow-lg">
               Preview
             </span>
           </div>
@@ -120,13 +72,58 @@ export default function Navbar() {
       </div>
     </motion.div>
   );
+};
+
+export default function Navbar() {
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+  const [expandedMobile, setExpandedMobile] = useState<string | null>(null);
+  const location = useLocation();
+  const hoverTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  // Close menus on route change
+  useEffect(() => {
+    setIsMobileMenuOpen(false);
+    setExpandedMobile(null);
+    setActiveDropdown(null);
+  }, [location.pathname]);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const handleMouseEnter = (menu: string) => {
+    if (hoverTimeoutRef.current) {
+      clearTimeout(hoverTimeoutRef.current);
+    }
+    setActiveDropdown(menu);
+  };
+
+  const handleMouseLeave = () => {
+    hoverTimeoutRef.current = setTimeout(() => {
+      setActiveDropdown(null);
+    }, 150);
+  };
+
+  const toggleMobileExpanded = (menu: string) => {
+    if (expandedMobile === menu) {
+      setExpandedMobile(null);
+    } else {
+      setExpandedMobile(menu);
+    }
+  };
 
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-industrial-black/95 backdrop-blur-md border-b border-white/10 py-3' : 'bg-transparent py-5'
         }`}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative"> {/* Added relative for full-width dropdown positioning */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         <div className="flex justify-between items-center">
           {/* Logo */}
           <div className="flex-shrink-0 flex items-center">
