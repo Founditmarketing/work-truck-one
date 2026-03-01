@@ -8,7 +8,7 @@ export default function Contact() {
             <section className="relative pt-32 pb-20 bg-industrial-black overflow-hidden border-b-4 border-safety-amber">
                 <div className="absolute inset-0 z-0">
                     <img
-                        src="https://images.unsplash.com/photo-1542744094-24638ea0b343?q=80&w=2940&auto=format&fit=crop"
+                        src="/images/about-facility.png"
                         alt="Contact Work Truck One"
                         className="w-full h-full object-cover grayscale opacity-30"
                     />
@@ -79,7 +79,7 @@ export default function Contact() {
                         {/* Simulated Map / Facility Image */}
                         <div className="relative border-4 border-white/10 p-2 transform md:-rotate-1 bg-industrial-black h-96 lg:h-full min-h-[500px]">
                             <img
-                                src="https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?q=80&w=2940&auto=format&fit=crop"
+                                src="/images/contact-map.png"
                                 alt="Work Truck One Facility Map View"
                                 className="w-full h-full object-cover grayscale opacity-80"
                             />

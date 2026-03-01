@@ -8,7 +8,7 @@ export default function About() {
             <section className="relative pt-32 pb-20 bg-industrial-black overflow-hidden border-b-4 border-safety-amber">
                 <div className="absolute inset-0 z-0">
                     <img
-                        src="https://images.unsplash.com/photo-1541888052185-1178556637e1?q=80&w=2940&auto=format&fit=crop"
+                        src="/images/about-facility.png"
                         alt="Work Truck One Facility"
                         className="w-full h-full object-cover grayscale opacity-30"
                     />

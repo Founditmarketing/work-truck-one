@@ -30,8 +30,8 @@ export default function Navbar() {
 
           {/* Desktop Nav */}
           <nav className="hidden md:flex items-center space-x-8">
-            <Link to="/#services" className="text-sm font-semibold text-industrial-light hover:text-safety-amber transition-colors">
-              SERVICES
+            <Link to="/" className="text-sm font-semibold text-industrial-light hover:text-safety-amber transition-colors">
+              HOME
             </Link>
             <Link to="/about" className="text-sm font-semibold text-industrial-light hover:text-safety-amber transition-colors">
               ABOUT
@@ -75,11 +75,11 @@ export default function Navbar() {
         <div className="md:hidden bg-industrial-black border-b border-white/10 absolute top-full left-0 right-0">
           <div className="px-4 pt-2 pb-6 space-y-4">
             <Link
-              to="/#services"
+              to="/"
               className="block text-base font-semibold text-industrial-light hover:text-safety-amber"
               onClick={() => setIsMobileMenuOpen(false)}
             >
-              SERVICES
+              HOME
             </Link>
             <Link
               to="/about"

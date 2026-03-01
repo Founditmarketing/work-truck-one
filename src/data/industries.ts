@@ -3,7 +3,7 @@ export const industries = [
         id: 'construction',
         title: 'Construction & Contracting',
         description: 'Rugged upfits designed to haul heavy machinery, transport raw materials, and endure the brutal daily abuse of active construction sites.',
-        image: 'https://images.unsplash.com/photo-1541888052185-1178556637e1?q=80&w=2940&auto=format&fit=crop',
+        image: '/images/construction.png',
         challenges: [
             'Transporting awkwardly shaped building materials safely',
             'Securing expensive power tools against high job-site theft risk',
@@ -20,7 +20,7 @@ export const industries = [
         id: 'landscaping',
         title: 'Landscaping & Hardscaping',
         description: 'Specialized chassis configurations built for maximum cubic yard capacity, easy dumping, and secure tool storage for crews.',
-        image: 'https://images.unsplash.com/photo-1588681664899-f142ff2dc9b1?q=80&w=2874&auto=format&fit=crop',
+        image: '/images/landscaping.png',
         challenges: [
             'Efficiently loading, securing, and offloading heavy zero-turn mowers',
             'Hauling massively heavy bulk materials like wet mulch, dirt, and decorative stone',
@@ -37,7 +37,7 @@ export const industries = [
         id: 'heavy-mechanic',
         title: 'Mobile Heavy Mechanics',
         description: 'Turnkey mobile workstations equipped to repair massive earthmovers, dozers, and fleet vehicles directly in the field.',
-        image: 'https://images.unsplash.com/photo-1504307651254-35680f356f12?q=80&w=2940&auto=format&fit=crop',
+        image: '/images/mechanic-crane.png',
         challenges: [
             'Performing engine pulls and tracked-equipment repairs without shop infrastructure',
             'Supplying high-volume compressed air and stable 110v electric power remotely',
@@ -54,7 +54,7 @@ export const industries = [
         id: 'municipality',
         title: 'Municipalities & Utilities',
         description: 'Highly regulated, DOT-compliant fleet vehicles engineered for right-of-way maintenance, traffic control, and public public works.',
-        image: 'https://images.unsplash.com/photo-1621305417070-07ff330e70ed?q=80&w=2940&auto=format&fit=crop',
+        image: '/images/municipal.png',
         challenges: [
             'Ensuring maximum visibility and safety during nighttime or roadside operation',
             'Maintaining versatile fleets that can respond to diverse public emergencies',
