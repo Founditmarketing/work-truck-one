@@ -30,15 +30,15 @@ export default function Navbar() {
 
           {/* Desktop Nav */}
           <nav className="hidden md:flex items-center space-x-8">
-            <a href="#services" className="text-sm font-semibold text-industrial-light hover:text-safety-amber transition-colors">
+            <Link to="/#services" className="text-sm font-semibold text-industrial-light hover:text-safety-amber transition-colors">
               SERVICES
-            </a>
-            <a href="#about" className="text-sm font-semibold text-industrial-light hover:text-safety-amber transition-colors">
+            </Link>
+            <Link to="/about" className="text-sm font-semibold text-industrial-light hover:text-safety-amber transition-colors">
               ABOUT
-            </a>
-            <a href="#contact" className="text-sm font-semibold text-industrial-light hover:text-safety-amber transition-colors">
+            </Link>
+            <Link to="/contact" className="text-sm font-semibold text-industrial-light hover:text-safety-amber transition-colors">
               CONTACT
-            </a>
+            </Link>
           </nav>
 
           {/* Desktop Actions */}
@@ -74,27 +74,27 @@ export default function Navbar() {
       {isMobileMenuOpen && (
         <div className="md:hidden bg-industrial-black border-b border-white/10 absolute top-full left-0 right-0">
           <div className="px-4 pt-2 pb-6 space-y-4">
-            <a
-              href="#services"
+            <Link
+              to="/#services"
               className="block text-base font-semibold text-industrial-light hover:text-safety-amber"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               SERVICES
-            </a>
-            <a
-              href="#about"
+            </Link>
+            <Link
+              to="/about"
               className="block text-base font-semibold text-industrial-light hover:text-safety-amber"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               ABOUT
-            </a>
-            <a
-              href="#contact"
+            </Link>
+            <Link
+              to="/contact"
               className="block text-base font-semibold text-industrial-light hover:text-safety-amber"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               CONTACT
-            </a>
+            </Link>
             <div className="pt-4 border-t border-white/10 flex flex-col space-y-4">
               <a
                 href="tel:3184432337"

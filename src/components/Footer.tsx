@@ -65,22 +65,20 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Business Hours */}
+          {/* Industries */}
           <div>
-            <h4 className="text-white font-display font-black text-xl mb-6 uppercase tracking-widest">HOURS</h4>
+            <h4 className="text-white font-display font-black text-xl mb-6 uppercase tracking-widest">INDUSTRIES</h4>
             <ul className="space-y-4">
-              <li className="flex justify-between items-center border-b border-white/5 pb-2">
-                <span className="text-gray-400 font-medium uppercase tracking-wide text-sm">Mon - Fri</span>
-                <span className="text-white font-medium uppercase tracking-wide text-sm">8:00 AM - 5:00 PM</span>
-              </li>
-              <li className="flex justify-between items-center border-b border-white/5 pb-2">
-                <span className="text-gray-400 font-medium uppercase tracking-wide text-sm">Saturday</span>
-                <span className="text-white font-medium uppercase tracking-wide text-sm">By Appointment</span>
-              </li>
-              <li className="flex justify-between items-center border-b border-white/5 pb-2">
-                <span className="text-gray-400 font-medium uppercase tracking-wide text-sm">Sunday</span>
-                <span className="text-safety-amber font-medium uppercase tracking-wide text-sm">Closed</span>
-              </li>
+              <li><Link to="/industries/construction" className="text-gray-400 hover:text-safety-amber transition-colors font-medium uppercase tracking-wide text-sm">Construction</Link></li>
+              <li><Link to="/industries/landscaping" className="text-gray-400 hover:text-safety-amber transition-colors font-medium uppercase tracking-wide text-sm">Landscaping</Link></li>
+              <li><Link to="/industries/heavy-mechanic" className="text-gray-400 hover:text-safety-amber transition-colors font-medium uppercase tracking-wide text-sm">Heavy Mechanics</Link></li>
+              <li><Link to="/industries/municipality" className="text-gray-400 hover:text-safety-amber transition-colors font-medium uppercase tracking-wide text-sm">Municipalities</Link></li>
+            </ul>
+
+            <h4 className="text-white font-display font-black text-xl mt-8 mb-6 uppercase tracking-widest">COMPANY</h4>
+            <ul className="space-y-4">
+              <li><Link to="/about" className="text-gray-400 hover:text-safety-amber transition-colors font-medium uppercase tracking-wide text-sm">About Us</Link></li>
+              <li><Link to="/contact" className="text-gray-400 hover:text-safety-amber transition-colors font-medium uppercase tracking-wide text-sm">Contact</Link></li>
             </ul>
           </div>
 
