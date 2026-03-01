@@ -19,9 +19,7 @@ export default function ServicesGrid() {
             </h3>
           </div>
           <div className="mt-8 md:mt-0">
-            <a href="#quote" className="group flex items-center gap-3 bg-white text-industrial-black hover:bg-safety-amber font-display font-black uppercase tracking-widest py-4 px-8 transition-colors clip-br">
-              View All Services <ArrowUpRight className="w-6 h-6 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
-            </a>
+            {/* View All Services button removed as all services are displayed directly in the grid below */}
           </div>
         </div>
 

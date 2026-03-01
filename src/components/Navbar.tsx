@@ -30,9 +30,9 @@ export default function Navbar() {
 
           {/* Desktop Nav */}
           <nav className="hidden md:flex items-center space-x-8">
-            <Link to="/" className="text-sm font-semibold text-industrial-light hover:text-safety-amber transition-colors">
-              HOME
-            </Link>
+            <a href="/#services" className="text-sm font-semibold text-industrial-light hover:text-safety-amber transition-colors">
+              SERVICES
+            </a>
             <Link to="/about" className="text-sm font-semibold text-industrial-light hover:text-safety-amber transition-colors">
               ABOUT
             </Link>
@@ -74,13 +74,13 @@ export default function Navbar() {
       {isMobileMenuOpen && (
         <div className="md:hidden bg-industrial-black border-b border-white/10 absolute top-full left-0 right-0">
           <div className="px-4 pt-2 pb-6 space-y-4">
-            <Link
-              to="/"
+            <a
+              href="/#services"
               className="block text-base font-semibold text-industrial-light hover:text-safety-amber"
               onClick={() => setIsMobileMenuOpen(false)}
             >
-              HOME
-            </Link>
+              SERVICES
+            </a>
             <Link
               to="/about"
               className="block text-base font-semibold text-industrial-light hover:text-safety-amber"
