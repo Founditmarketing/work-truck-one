@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { motion } from 'motion/react';
 import { Send, CheckCircle2 } from 'lucide-react';
 
+import FloatingInput from './FloatingInput';
+
 export default function LeadForm() {
   const [formState, setFormState] = useState<'idle' | 'submitting' | 'success'>('idle');
 
@@ -18,7 +20,7 @@ export default function LeadForm() {
     <section id="quote" className="py-24 bg-industrial-black relative border-t-4 border-white/10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          
+
           {/* Left Column: Copy */}
           <div>
             <h2 className="text-safety-amber font-display font-black tracking-widest uppercase text-lg mb-4 flex items-center gap-4">
@@ -32,7 +34,7 @@ export default function LeadForm() {
             <p className="text-xl text-gray-400 font-medium mb-12 max-w-lg leading-relaxed">
               Fill out the form below with your project details, and our commercial upfitting specialists will get back to you within 24 hours.
             </p>
-            
+
             <div className="space-y-8">
               <div className="flex items-start gap-6">
                 <div className="w-16 h-16 bg-industrial-gray border-2 border-white/10 flex items-center justify-center flex-shrink-0 clip-br">
@@ -93,78 +95,25 @@ export default function LeadForm() {
                 </button>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div className="space-y-2">
-                    <label htmlFor="firstName" className="block text-sm font-display font-black text-gray-400 uppercase tracking-widest">First Name</label>
-                    <input
-                      type="text"
-                      id="firstName"
-                      required
-                      className="w-full bg-industrial-black border-2 border-white/10 px-4 py-4 text-white focus:outline-none focus:border-safety-amber transition-colors font-medium"
-                      placeholder="JOHN"
-                    />
-                  </div>
-                  <div className="space-y-2">
-                    <label htmlFor="lastName" className="block text-sm font-display font-black text-gray-400 uppercase tracking-widest">Last Name</label>
-                    <input
-                      type="text"
-                      id="lastName"
-                      required
-                      className="w-full bg-industrial-black border-2 border-white/10 px-4 py-4 text-white focus:outline-none focus:border-safety-amber transition-colors font-medium"
-                      placeholder="DOE"
-                    />
-                  </div>
+              <form onSubmit={handleSubmit} className="space-y-10">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-6">
+                  <FloatingInput id="firstName" label="First Name" required />
+                  <FloatingInput id="lastName" label="Last Name" required />
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div className="space-y-2">
-                    <label htmlFor="email" className="block text-sm font-display font-black text-gray-400 uppercase tracking-widest">Email Address</label>
-                    <input
-                      type="email"
-                      id="email"
-                      required
-                      className="w-full bg-industrial-black border-2 border-white/10 px-4 py-4 text-white focus:outline-none focus:border-safety-amber transition-colors font-medium"
-                      placeholder="JOHN@COMPANY.COM"
-                    />
-                  </div>
-                  <div className="space-y-2">
-                    <label htmlFor="phone" className="block text-sm font-display font-black text-gray-400 uppercase tracking-widest">Phone Number</label>
-                    <input
-                      type="tel"
-                      id="phone"
-                      required
-                      className="w-full bg-industrial-black border-2 border-white/10 px-4 py-4 text-white focus:outline-none focus:border-safety-amber transition-colors font-medium"
-                      placeholder="(318) 555-0123"
-                    />
-                  </div>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-6">
+                  <FloatingInput id="email" label="Email Address" type="email" required />
+                  <FloatingInput id="phone" label="Phone Number" type="tel" required />
                 </div>
 
-                <div className="space-y-2">
-                  <label htmlFor="company" className="block text-sm font-display font-black text-gray-400 uppercase tracking-widest">Company Name (Optional)</label>
-                  <input
-                    type="text"
-                    id="company"
-                    className="w-full bg-industrial-black border-2 border-white/10 px-4 py-4 text-white focus:outline-none focus:border-safety-amber transition-colors font-medium"
-                    placeholder="DOE CONSTRUCTION LLC"
-                  />
-                </div>
+                <FloatingInput id="company" label="Company Name (Optional)" />
 
-                <div className="space-y-2">
-                  <label htmlFor="project" className="block text-sm font-display font-black text-gray-400 uppercase tracking-widest">Project Details</label>
-                  <textarea
-                    id="project"
-                    required
-                    rows={5}
-                    className="w-full bg-industrial-black border-2 border-white/10 px-4 py-4 text-white focus:outline-none focus:border-safety-amber transition-colors resize-none font-medium"
-                    placeholder="TELL US ABOUT YOUR TRUCK (MAKE, MODEL, YEAR) AND THE UPFITTING SERVICES YOU NEED..."
-                  ></textarea>
-                </div>
+                <FloatingInput id="project" label="Project Details" required isTextArea />
 
                 <button
                   type="submit"
                   disabled={formState === 'submitting'}
-                  className="w-full group flex items-center justify-center gap-3 bg-safety-amber hover:bg-white text-industrial-black font-display font-black text-xl py-5 px-8 transition-all uppercase tracking-widest disabled:opacity-70 disabled:cursor-not-allowed clip-br mt-4"
+                  className="w-full group flex items-center justify-center gap-3 bg-safety-amber hover:bg-white text-industrial-black font-display font-black text-xl py-5 px-8 transition-all uppercase tracking-widest disabled:opacity-70 disabled:cursor-not-allowed clip-br mt-8"
                 >
                   {formState === 'submitting' ? (
                     'SENDING...'
@@ -177,7 +126,7 @@ export default function LeadForm() {
                 </button>
               </form>
             )}
-            
+
             {/* Decorative corner accent */}
             <div className="absolute top-0 right-0 w-24 h-24 pointer-events-none">
               <div className="absolute top-0 right-0 w-full h-1 bg-safety-amber"></div>
